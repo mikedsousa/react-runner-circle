@@ -4,19 +4,10 @@ import Sidebar from '../components/layout/Sidebar'
 import BottomNavigation from '../components/layout/BottomNavigation'
 import WorkoutCard from '../components/ui/WorkoutCard'
 import FloatingActionButton from '../components/ui/FloatingActionButton'
-import { gql } from '@apollo/client'
 import { useQuery } from '@apollo/client/react'
+import ErrorMessage from '../components/ui/ErrorMessage'
+import { GET_FEED } from '../../database/graphql/query/feed'
 
-const GET_FEED = gql`
-  query GetFeed {
-    allFeeds {
-        user
-        time
-        stats
-        description
-    }
-}
-`
 
 function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
   const [activeItem, setActiveItem] = useState('feed')
@@ -26,8 +17,7 @@ function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-
-        const normalizedWorkouts = data.map(item => {
+        const normalizedWorkouts = data.allFeeds.map(item => {
           if (item.workout) {
             return {
               id: item.id,
@@ -77,9 +67,7 @@ function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
 
             {/* Error State */}
             {error && (
-              <div className="flex justify-center items-center py-8">
-                <div className="text-red-500">Erro ao carregar treinos: {error}</div>
-              </div>
+              <ErrorMessage message={`Error ao carregar treinos`} error={error.message}/>
             )}
 
             {/* Workout Cards Grid */}
