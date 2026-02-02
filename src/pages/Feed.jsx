@@ -4,22 +4,29 @@ import Sidebar from '../components/layout/Sidebar'
 import BottomNavigation from '../components/layout/BottomNavigation'
 import WorkoutCard from '../components/ui/WorkoutCard'
 import FloatingActionButton from '../components/ui/FloatingActionButton'
+import { gql } from '@apollo/client'
+import { useQuery } from '@apollo/client/react'
+
+const GET_FEED = gql`
+  query GetFeed {
+    allFeeds {
+        user
+        time
+        stats
+        description
+    }
+}
+`
 
 function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
   const [activeItem, setActiveItem] = useState('feed')
   const [workouts, setWorkouts] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const {loading, error, data} = useQuery(GET_FEED)
+
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      try {
-        setLoading(true)
-        const response = await fetch('http://localhost:3001/feed')
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
-        }
-        const data = await response.json()
+
         const normalizedWorkouts = data.map(item => {
           if (item.workout) {
             return {
@@ -30,17 +37,10 @@ function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
           return item
         })
         setWorkouts(normalizedWorkouts)
-        setError(null)
-      } catch (err) {
-        console.error('Error fetching workouts:', err)
-        setError(err.message)
-      } finally {
-        setLoading(false)
-      }
-    }
-
+      } 
+    
     fetchWorkouts()
-  }, [])
+  }, [data])
 
   const handleMenuClick = (itemId) => {
     setActiveItem(itemId)

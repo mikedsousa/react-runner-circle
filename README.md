@@ -1,12 +1,60 @@
-# React + Vite
+# React Runner Circle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição do Projeto
 
-Currently, two official plugins are available:
+O **React Runner Circle** é uma aplicação web desenvolvida em React que permite aos usuários interagir com uma comunidade de corredores. Os usuários podem criar perfis, compartilhar suas experiências de corrida, e visualizar postagens de outros corredores. A aplicação utiliza GraphQL para gerenciar as interações com o banco de dados, proporcionando uma experiência fluida e eficiente.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- **Cadastro de Usuário**: Os usuários podem se registrar na plataforma, criando um perfil com informações pessoais.
+- **Login**: Usuários registrados podem fazer login para acessar suas contas.
+- **Feed de Postagens**: Os usuários podem visualizar um feed com postagens de outros corredores, incluindo fotos e descrições.
+- **Criação de Postagens**: Os usuários podem criar novas postagens para compartilhar suas experiências.
+- **Edição de Perfil**: Os usuários podem editar suas informações pessoais a qualquer momento.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologias Utilizadas
+
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **GraphQL**: Linguagem de consulta para APIs, utilizada para gerenciar as interações com o banco de dados.
+- **Vite**: Ferramenta de construção para desenvolvimento rápido de aplicações web.
+- **Tailwind CSS**: Framework CSS para estilização da aplicação.
+
+## Estrutura do Projeto
+
+```
+├── database/
+│   ├── json-graphql-server.js
+│   └── json-server.json
+├── public/
+├── src/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   ├── assets/
+│   ├── components/
+│   │   ├── forms/
+│   │   ├── layout/
+│   │   └── ui/
+│   └── pages/
+└── vite.config.js
+```
+
+## Como Executar o Projeto
+
+1. Clone o repositório:
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   cd react-runner-circle
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+4. Acesse a aplicação em seu navegador: [http://localhost:5173](http://localhost:5173)
+
+
