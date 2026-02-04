@@ -116,3 +116,20 @@ export const feed = [
 		timestamp: '2025-01-13T17:20:00Z',
 	},
 ];
+
+export const equipments = [
+	{
+		id: 1,
+		nome: 'Air Zoom Pegasus 40',
+		tipo: 'tênis',
+		marca: 'Nike',
+		emUso: true,
+	},
+	{
+		id: 2,
+		nome: 'Forerunner 255',
+		tipo: 'relógio',
+		marca: 'Garmin',
+		emUso: false,
+	},
+];

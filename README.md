@@ -23,6 +23,9 @@ O **React Runner Circle** é uma aplicação web desenvolvida em React que permi
 
 ```
 ├── database/
+│   ├── graphql/
+│   │   ├── mutations/
+│   │   └── query/
 │   ├── json-graphql-server.js
 │   └── json-server.json
 ├── public/
@@ -37,7 +40,12 @@ O **React Runner Circle** é uma aplicação web desenvolvida em React que permi
 │   │   ├── layout/
 │   │   └── ui/
 │   └── pages/
-└── vite.config.js
+├── eslint.config.js
+├── index.html
+├── postcss.config.js
+├── tailwind.config.js
+├── vite.config.js
+└── package.json
 ```
 
 ## Como Executar o Projeto
@@ -51,10 +59,16 @@ O **React Runner Circle** é uma aplicação web desenvolvida em React que permi
    ```bash
    npm install
    ```
-3. Inicie o servidor de desenvolvimento:
+3. Inicie o servidor GraphQL (em um terminal separado):
+
+   ```bash
+   npm run server:json-graphql
+   ```
+
+   O servidor GraphQL estará disponível em [http://localhost:3001](http://localhost:3001)
+
+4. Em outro terminal, inicie o servidor de desenvolvimento:
    ```bash
    npm run dev
    ```
-4. Acesse a aplicação em seu navegador: [http://localhost:5173](http://localhost:5173)
-
-
+5. Acesse a aplicação em seu navegador: [http://localhost:5173](http://localhost:5173)

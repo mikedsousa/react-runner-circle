@@ -12,6 +12,7 @@ import {
 } from "../../database/graphql/query/feed";
 import Dropdown from "../components/ui/Dropdown";
 import { Category } from "@mui/icons-material";
+import Equipments from "../components/ui/Equipments";
 
 function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
   const [activeItem, setActiveItem] = useState("feed");
@@ -103,6 +104,7 @@ function Feed({ onNavigateToNewPost, onNavigateToProfile, onLogout }) {
                 {workouts.map((workout) => (
                   <WorkoutCard key={workout.id} workout={workout} />
                 ))}
+                {/* <Equipments />  */}
               </div>
             )}
           </div>
